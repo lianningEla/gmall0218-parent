@@ -7,8 +7,8 @@ import com.atguigu.gmall0218.common.constant.GmallConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController   //controller +    @ResponseBody
 @Slf4j
@@ -38,7 +38,7 @@ public class LoggerController {
         if("startup".equals(jsonObject.getString("type"))){
             kafkaTemplate.send(GmallConstant.KAFKA_TOPIC_STARUP,jsonString);
         }else{
-            kafkaTemplate.send(GmallConstant.KAFKA_TOPIC_STARUP,jsonString);
+            kafkaTemplate.send(GmallConstant.KAFKA_TOPIC_EVENT,jsonString);
         }
 
 
